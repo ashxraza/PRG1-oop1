@@ -14,16 +14,21 @@ class Person:
 
     def talk(self):
         return f"Hi, my name is {self.name} and I was born in {self.place_of_birth}."
+    
+    def introduce_age(self):
+        return f"I was born on {self.date_of_birth}"
 
 
 # TODO 1: Create a Person object representing yourself.
 #         Call the variable `me`.
-
+me = Person("Adarsh Radhesh", "09/07/2005", "Thrissur")
 
 # TODO 2: Create a Person object for a fictional character of your choice.
-
+lelouch = Person("Lelouch vi Britannia", "05/12/1999", "Tokyo")
 
 # TODO 3: Print the result of calling .talk() on both objects.
+print(me.talk())
+print(lelouch.talk())
 
 
 # TODO 4: Add a new method to the Person class called `introduce_age()`
@@ -33,3 +38,6 @@ class Person:
 
 
 # TODO 5: Call your new introduce_age() method on both objects and print the results.
+
+print(me.introduce_age())
+print(lelouch.introduce_age())

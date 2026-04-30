@@ -33,20 +33,25 @@ class Person:
 
     def talk(self):
         return f"Hi, my name is {self.name} and I was born in {self.place_of_birth}."
+    
+    def age_in_years(self):
+        split_year = (self._date_of_birth.split("/"))
+        actual_year = int(split_year[2])
+        return 2026 - actual_year
 
 
 # Create a Person to experiment with
 person = Person("Alex Smith", "10/10/2003", "Cardiff")
-print(person.talk())
+# print(person.talk())
 
 
 # TODO 1: Change the person's name to "Alexandra Smith" using the setter.
 #         Then print the new name.
-
+person.name = "Alexandra Smith"
+# print(person.name)
 
 # TODO 2: Try to set the name to an empty string "".
 #         What error do you get? Wrap the line in try/except so the program continues.
-#
 # Example:
 # try:
 #     person.name = ""
@@ -60,8 +65,19 @@ print(person.talk())
 #         Wrap it in try/except so the program continues.
 
 
+# try:
+#     person.date_of_birth ="01/01/1999"
+# except AttributeError as e:
+#     print(f"Caught error: {e}")
+
+
 # TODO 4: Try to change the place_of_birth in the same way.
 #         Same error?
+
+# try:
+#     person.place_of_birth ="New York"
+# except AttributeError as e:
+#     print(f"Caught error: {e}")
 
 
 # TODO 5: Add a NEW property to the class above called `age_in_years`
@@ -70,3 +86,5 @@ print(person.talk())
 #         You can split it on "/" and use the year. Use 2026 as "now".
 #         Make it a getter only (no setter — your age isn't something you can just set!).
 #         Then print person.age_in_years.
+
+print(f"Age: {person.age_in_years}")

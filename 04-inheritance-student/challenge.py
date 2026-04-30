@@ -45,6 +45,10 @@ class AdaStudent(Person):
             f"Course: {self.course}, "
             f"Average: {self.get_average_grade():.1f}"
         )
+    def highest_grade(self):
+        if not self._grades:
+            return None
+        return max(self._grades)
 
 
 # We'll start you off with two students
@@ -56,18 +60,44 @@ james = AdaStudent("James Brown", "08/11/2001", "London", "STU002", "Data Scienc
 #         Use a mixture of courses (e.g. Software Development, Data Science,
 #         Cybersecurity, Product Management).
 
+nour = AdaStudent("Nour Miah", "13/01/2002", "Manchester", "STU003", "Project Management")
+jamal = AdaStudent("Jamal Begum", "09/11/2001", "London", "STU004", "Aerospace Engineering")
+inaya = AdaStudent("Inaya Raza", "31/03/2002", "Manchester", "STU005", "Accounting")
+ayan = AdaStudent("Ayan Raza", "31/03/2002", "Manchester", "STU006", "Medicine")
+
 
 # TODO 2: Add some grades (between 0 and 100) to each student.
 #         Give each student at least 3 grades.
 
+emma.add_grade(56); emma.add_grade(72); emma.add_grade(78)
+james.add_grade(70); james.add_grade(74); james.add_grade(80)
+nour.add_grade(70);nour.add_grade(80);nour.add_grade(87);
+jamal.add_grade(40);jamal.add_grade(50);jamal.add_grade(65);
+inaya.add_grade(80);inaya.add_grade(87);inaya.add_grade(95);
+ayan.add_grade(63);ayan.add_grade(81);ayan.add_grade(92);
+
+students = [emma, james, nour, jamal, inaya, ayan]
 
 # TODO 3: Print the get_student_info() of every student so you can compare averages.
 
+for student in students:
+    print(f"{student.name}: {student.get_student_info()}")
 
 # TODO 4: Find and print the name of the student with the highest average grade.
 #         Hint: put all your students in a list and loop through it.
 
 
+
+top_student = max(students, key=lambda s: s.get_average_grade())
+print(f"Top student: {top_student.name} with average {top_student.get_average_grade():.1f}")
+
+
 # TODO 5 (stretch): Add a new method `highest_grade()` to AdaStudent that returns
 #         the student's highest grade, or None if they have no grades yet.
 #         Test it on a couple of students.
+print(f"Emma's highest grade: {emma.highest_grade()}")
+print(f"James's highest grade: {james.highest_grade()}")
+print(f"Nour's highest grade: {nour.highest_grade()}")
+print(f"Jamal's highest grade: {jamal.highest_grade()}")
+print(f"Inaya's highest grade: {inaya.highest_grade()}")
+print(f"Ayan's highest grade: {ayan.highest_grade()}")
